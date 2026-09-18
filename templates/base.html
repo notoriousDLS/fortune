@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{% endblock %} - Flaskr</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+{% if g.user %}
+<link rel="stylesheet" href="{{ url_for('static', filename='michael.css') }}">
+
+<!-- Claude's Animation: react must load before react-dom, support.js boots it -->
+<script src="{{ url_for('static', filename='vendor/react.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/react-dom.js') }}"></script>
+<script src="{{ url_for('static', filename='support.js') }}"></script>
+
+
+{% endif %}
+<nav>
+  <h1><a href="{{ url_for('index') }}">Michael the Magnificent</a></h1>
+  <ul>
+    <li><a href="{{ url_for('blog.index') }}">Posts</a>
+    {% if g.user %}
+      <li><span>{{ g.user['username'] }}</span>
+      <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+    {% else %}
+      <li><a href="{{ url_for('auth.register') }}">Register</a>
+      <li><a href="{{ url_for('auth.login') }}">Log In</a>
+    {% endif %}
+  </ul>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>

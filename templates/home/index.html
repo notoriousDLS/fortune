@@ -1,0 +1,330 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}An AI fortune teller{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    {% if g.user %}
+    <h1>I sense a user has logged in</h1>
+    {% else %}
+    <h1>I invite you to discover the incredible power of Micheal the Magnificent</h1> 
+    <p>Travelling carnivals aren't what they used to be and so it was written in the great prophecy that a powerful man made force will work with me to reveal your destiny </p>
+    <p> Normally, the gifted seers such as myself would request their palms crossed with silver, but even the seers must move with the times. </p>
+    <p>I suppose I'll have to settle for your personal information. </p>
+    <button><a href="/register">Gaze in to the future</a></button>
+
+
+    {% endif %}
+
+
+    {% if g.user %}
+    <div class="dob-input">
+        <label for="dobInput">Enter your date of birth</label>
+        <input type="date" id="dobInput" name="dob">
+    </div>
+
+    <x-dc>
+        <helmet>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English&amp;family=Rye&amp;display=swap">
+        </helmet>
+        <div class="fortune-teller-frame">
+        <svg viewBox="0 0 900 1200" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An animated wizard with a ginger beard, round glasses and a starry purple hat sits in a carnival fortune booth, waving a hand over a glowing crystal ball and holding a staff with a glowing crystal. A fortune card slides out of a slot below.">
+        <defs>
+            <radialGradient id="ballGrad" cx="0.4" cy="0.35" r="0.7">
+            <stop offset="0" style="stop-color: #ffffff; stop-opacity: 0.95"></stop>
+            <stop offset="0.35" style="stop-color: {{glow}}; stop-opacity: 0.85"></stop>
+            <stop offset="1" style="stop-color: #2a1a5e; stop-opacity: 0.95"></stop>
+            </radialGradient>
+            <radialGradient id="haloGrad" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0" style="stop-color: {{glow}}; stop-opacity: 0.75"></stop>
+            <stop offset="1" style="stop-color: {{glow}}; stop-opacity: 0"></stop>
+            </radialGradient>
+            <linearGradient id="woodGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" style="stop-color: #43200f"></stop>
+            <stop offset="0.5" style="stop-color: #6b3a22"></stop>
+            <stop offset="1" style="stop-color: #43200f"></stop>
+            </linearGradient>
+            <clipPath id="windowClip">
+            <path d="M150 850 L150 330 Q150 230 250 230 L650 230 Q750 230 750 330 L750 850 Z"></path>
+            </clipPath>
+            <clipPath id="ballClip">
+            <circle cx="450" cy="765" r="64"></circle>
+            </clipPath>
+        </defs>
+
+        <!-- Cabinet feet and base -->
+        <rect x="120" y="1130" width="80" height="55" rx="6" fill="#2a140d"></rect>
+        <rect x="700" y="1130" width="80" height="55" rx="6" fill="#2a140d"></rect>
+        <rect x="90" y="1116" width="720" height="26" rx="6" fill="#2a140d" stroke="#d9a441" style="stroke-width: 3"></rect>
+
+        <!-- Cabinet body -->
+        <rect x="100" y="190" width="700" height="930" rx="8" fill="url(#woodGrad)" stroke="#d9a441" style="stroke-width: 6"></rect>
+        <rect x="120" y="205" width="660" height="900" rx="10" fill="none" stroke="#d9a441" style="stroke-width: 2; opacity: 0.5"></rect>
+
+        <!-- Marquee -->
+        <path d="M70 205 L70 120 Q70 40 150 40 L750 40 Q830 40 830 120 L830 205 Z" fill="#7d1d2c" stroke="#d9a441" style="stroke-width: 6"></path>
+        <rect x="120" y="82" width="660" height="96" rx="14" fill="#2a0f16" stroke="#d9a441" style="stroke-width: 3"></rect>
+        <text x="450" y="148" fill="#f3d27a" style="font-family: Rye, Georgia, serif; font-size: 54px; text-anchor: middle; letter-spacing: 4px">FORTUNES TOLD</text>
+
+        <!-- Marquee bulbs -->
+        <circle class="bulbA" cx="130" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbB" cx="170" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbA" cx="210" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbB" cx="250" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbA" cx="290" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbB" cx="330" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbA" cx="370" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbB" cx="410" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbA" cx="450" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbB" cx="490" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbA" cx="530" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbB" cx="570" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbA" cx="610" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbB" cx="650" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbA" cx="690" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbB" cx="730" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbA" cx="770" cy="62" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbB" cx="90" cy="110" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbA" cx="90" cy="150" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbB" cx="90" cy="190" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbB" cx="810" cy="110" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbA" cx="810" cy="150" r="7" fill="#fff2b0"></circle>
+        <circle class="bulbB" cx="810" cy="190" r="7" fill="#fff2b0"></circle>
+
+        <!-- Window frame -->
+        <path d="M136 864 L136 330 Q136 216 250 216 L650 216 Q764 216 764 330 L764 864 Z" fill="#b8862f"></path>
+
+        <!-- Window interior -->
+        <g style="clip-path: url(#windowClip)">
+            <rect x="150" y="230" width="600" height="620" fill="#1b1440"></rect>
+
+            <!-- Night sky -->
+            <path class="twinkle" transform="translate(300 290)" d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z" fill="#f3d27a"></path>
+            <path class="twinkle" style="animation-delay: 0.8s" transform="translate(600 320)" d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z" fill="#f3d27a"></path>
+            <path class="twinkle" style="animation-delay: 1.6s" transform="translate(340 520)" d="M0 -6 L1.5 -1.5 L6 0 L1.5 1.5 L0 6 L-1.5 1.5 L-6 0 L-1.5 -1.5 Z" fill="#f3d27a"></path>
+            <path class="twinkle" style="animation-delay: 2.2s" transform="translate(580 470)" d="M0 -6 L1.5 -1.5 L6 0 L1.5 1.5 L0 6 L-1.5 1.5 L-6 0 L-1.5 -1.5 Z" fill="#f3d27a"></path>
+            <circle class="twinkle" style="animation-delay: 0.4s" cx="380" cy="270" r="2.5" fill="#ffffff"></circle>
+            <circle class="twinkle" style="animation-delay: 1.2s" cx="545" cy="275" r="2" fill="#ffffff"></circle>
+            <circle class="twinkle" style="animation-delay: 2s" cx="320" cy="400" r="2" fill="#ffffff"></circle>
+            <circle class="twinkle" style="animation-delay: 2.6s" cx="590" cy="600" r="2.5" fill="#ffffff"></circle>
+
+            <!-- Curtains -->
+            <path d="M150 230 L262 230 Q204 330 216 450 Q226 560 176 850 L150 850 Z" fill="#8e2433"></path>
+            <path d="M750 230 L638 230 Q696 330 684 450 Q674 560 724 850 L750 850 Z" fill="#8e2433"></path>
+            <path d="M190 230 Q170 400 200 520" fill="none" stroke="#6a1826" style="stroke-width: 4"></path>
+            <path d="M710 230 Q730 400 700 520" fill="none" stroke="#6a1826" style="stroke-width: 4"></path>
+            <rect x="186" y="440" width="40" height="12" rx="6" fill="#d9a441"></rect>
+            <rect x="674" y="440" width="40" height="12" rx="6" fill="#d9a441"></rect>
+
+            <!-- Ball halo -->
+            <circle class="pulse" cx="450" cy="765" r="140" fill="url(#haloGrad)"></circle>
+
+            <!-- The wizard -->
+            <g class="bob">
+            <!-- Robe -->
+            <path d="M296 850 L316 640 Q328 578 390 560 L510 560 Q572 578 584 640 L604 850 Z" fill="#1f5c4a"></path>
+            <path d="M390 562 L450 660 L510 562" fill="none" stroke="#d9a441" style="stroke-width: 6; stroke-linejoin: round"></path>
+            <path transform="translate(350 700)" d="M0 -7 L2 -2 L7 0 L2 2 L0 7 L-2 2 L-7 0 L-2 -2 Z" fill="#d9a441"></path>
+            <path transform="translate(560 720)" d="M0 -7 L2 -2 L7 0 L2 2 L0 7 L-2 2 L-7 0 L-2 -2 Z" fill="#d9a441"></path>
+            <path transform="translate(335 800)" d="M0 -5 L1.5 -1.5 L5 0 L1.5 1.5 L0 5 L-1.5 1.5 L-5 0 L-1.5 -1.5 Z" fill="#d9a441"></path>
+
+            <!-- Staff -->
+            <circle class="pulse" cx="640" cy="276" r="50" fill="url(#haloGrad)"></circle>
+            <rect x="632" y="296" width="16" height="560" rx="8" fill="#6b4222"></rect>
+            <path d="M620 312 Q614 290 626 272 M660 312 Q666 290 654 272" fill="none" stroke="#6b4222" style="stroke-width: 7; stroke-linecap: round"></path>
+            <polygon class="eyeglow" points="640,236 662,278 640,318 618,278" fill="{{glow}}"></polygon>
+            <polygon points="640,236 650,278 640,318 630,278" fill="#ffffff" style="opacity: 0.45"></polygon>
+
+            <!-- Staff arm and hand -->
+            <path d="M548 582 Q604 590 628 628 L656 654 Q644 690 612 682 L560 644 Z" fill="#1a4d3e"></path>
+            <path d="M626 634 L654 660" stroke="#d9a441" style="stroke-width: 5; stroke-linecap: round"></path>
+            <ellipse cx="640" cy="662" rx="20" ry="17" fill="#eec09c"></ellipse>
+            <path d="M626 656 Q640 650 654 656" fill="none" stroke="#c9936f" style="stroke-width: 2"></path>
+
+            <!-- Head -->
+            <g class="head">
+                <ellipse cx="382" cy="462" rx="12" ry="18" fill="#e3ad88"></ellipse>
+                <ellipse cx="518" cy="462" rx="12" ry="18" fill="#e3ad88"></ellipse>
+                <ellipse cx="450" cy="455" rx="68" ry="80" fill="#eec09c"></ellipse>
+                <path d="M378 410 Q358 440 372 482 Q384 450 394 428 Z" fill="#c1502e"></path>
+                <path d="M522 410 Q542 440 528 482 Q516 450 506 428 Z" fill="#c1502e"></path>
+
+                <!-- Rosy cheeks -->
+                <circle cx="404" cy="490" r="14" fill="#e07a6a" style="opacity: 0.4"></circle>
+                <circle cx="496" cy="490" r="14" fill="#e07a6a" style="opacity: 0.4"></circle>
+
+                <!-- Bushy brows -->
+                <path d="M398 430 Q420 412 442 426" fill="none" stroke="#b8452a" style="stroke-width: 10; stroke-linecap: round"></path>
+                <path d="M458 426 Q480 412 502 430" fill="none" stroke="#b8452a" style="stroke-width: 10; stroke-linecap: round"></path>
+
+                <!-- Glowing eyes -->
+                <circle class="eyeglow" cx="422" cy="452" r="18" fill="url(#haloGrad)"></circle>
+                <circle class="eyeglow" cx="478" cy="452" r="18" fill="url(#haloGrad)"></circle>
+                <circle class="eyeglow" cx="422" cy="452" r="7" fill="{{glow}}"></circle>
+                <circle class="eyeglow" cx="478" cy="452" r="7" fill="{{glow}}"></circle>
+
+                <!-- Round spectacles -->
+                <circle cx="422" cy="452" r="21" fill="#ffffff" stroke="#d9a441" style="stroke-width: 4; fill-opacity: 0.12"></circle>
+                <circle cx="478" cy="452" r="21" fill="#ffffff" stroke="#d9a441" style="stroke-width: 4; fill-opacity: 0.12"></circle>
+                <path d="M443 450 Q450 444 457 450" fill="none" stroke="#d9a441" style="stroke-width: 4"></path>
+
+                <!-- Long nose -->
+                <path d="M450 458 Q436 494 444 506 Q456 514 464 500 Q460 480 450 458 Z" fill="#e0a37f"></path>
+
+                <!-- Beard, mouth, moustache -->
+                <path d="M382 482 Q378 566 410 616 Q430 652 450 672 Q470 652 490 616 Q522 566 518 482 Q502 522 472 530 Q450 542 428 530 Q398 522 382 482 Z" fill="#b8452a"></path>
+                <path d="M420 560 Q424 600 438 630 M450 560 L450 650 M480 560 Q476 600 462 630 M402 540 Q404 570 414 596 M498 540 Q496 570 486 596" fill="none" stroke="#8e3320" style="stroke-width: 3; stroke-linecap: round"></path>
+                <ellipse cx="450" cy="534" rx="11" ry="5" fill="#5a2020"></ellipse>
+                <path d="M450 510 Q420 502 400 518 Q392 530 378 522 Q392 544 420 532 Q438 524 450 522 Q462 524 480 532 Q508 544 522 522 Q508 530 500 518 Q480 502 450 510 Z" fill="#c1502e"></path>
+
+                <!-- Hat -->
+                <ellipse cx="450" cy="398" rx="128" ry="24" fill="#3d2268"></ellipse>
+                <path d="M366 398 Q398 330 432 290 Q462 252 512 246 Q540 250 532 272 Q500 274 488 302 Q496 350 534 398 Z" fill="#4b2a7a"></path>
+                <path d="M372 392 Q450 410 528 392 L524 376 Q450 394 376 376 Z" fill="#d9a441"></path>
+                <circle cx="468" cy="350" r="11" fill="#f3d27a"></circle>
+                <circle cx="474" cy="346" r="10" fill="#4b2a7a"></circle>
+                <path class="twinkle" transform="translate(425 345)" d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z" fill="#f3d27a"></path>
+                <path class="twinkle" style="animation-delay: 1s" transform="translate(470 300)" d="M0 -6 L1.5 -1.5 L6 0 L1.5 1.5 L0 6 L-1.5 1.5 L-6 0 L-1.5 -1.5 Z" fill="#f3d27a"></path>
+                <path class="twinkle" style="animation-delay: 1.8s" transform="translate(500 365)" d="M0 -5 L1.5 -1.5 L5 0 L1.5 1.5 L0 5 L-1.5 1.5 L-5 0 L-1.5 -1.5 Z" fill="#f3d27a"></path>
+                <circle cx="532" cy="266" r="9" fill="#d9a441"></circle>
+            </g>
+            </g>
+
+            <!-- Crystal ball -->
+            <circle cx="450" cy="765" r="66" fill="url(#ballGrad)" stroke="#ffffff" style="stroke-width: 2; stroke-opacity: 0.35"></circle>
+            <g style="clip-path: url(#ballClip)">
+            <g class="spin">
+                <path d="M404 765 Q450 712 496 765 Q450 806 426 772" fill="none" stroke="#ffffff" style="stroke-width: 3; stroke-opacity: 0.5; stroke-linecap: round"></path>
+                <path d="M420 740 Q470 730 478 790" fill="none" stroke="#ffffff" style="stroke-width: 2; stroke-opacity: 0.35; stroke-linecap: round"></path>
+            </g>
+            </g>
+            <ellipse cx="424" cy="738" rx="16" ry="9" fill="#ffffff" transform="rotate(-30 424 738)" style="opacity: 0.6"></ellipse>
+
+            <!-- Stand -->
+            <path d="M378 848 L400 808 L500 808 L522 848 Z" fill="#b8862f"></path>
+            <ellipse cx="450" cy="808" rx="52" ry="10" fill="#d9a441"></ellipse>
+            <rect x="366" y="840" width="168" height="14" rx="4" fill="#8a5f1c"></rect>
+
+            <!-- Hovering hand, sweeping over the ball -->
+            <g class="sweep">
+            <path d="M322 604 Q336 574 372 590 L442 662 Q452 690 428 700 L406 692 L328 642 Z" fill="#1a4d3e"></path>
+            <path d="M430 652 L412 690" stroke="#d9a441" style="stroke-width: 5; stroke-linecap: round"></path>
+            <ellipse cx="438" cy="688" rx="26" ry="13" fill="#eec09c"></ellipse>
+            <path d="M456 682 Q476 682 480 690 Q474 697 456 695 Z" fill="#eec09c"></path>
+            <path d="M452 692 Q470 696 474 704 Q466 709 450 702 Z" fill="#e3ad88"></path>
+            <path d="M420 680 Q412 668 418 664 Q426 668 428 680 Z" fill="#e3ad88"></path>
+            </g>
+
+            <!-- Glass reflection -->
+            <path d="M560 230 L620 230 L380 850 L320 850 Z" fill="#ffffff" style="opacity: 0.05"></path>
+        </g>
+
+        <!-- Brass plaque -->
+        <rect x="220" y="890" width="460" height="72" rx="10" fill="#d9a441" stroke="#8a5f1c" style="stroke-width: 3"></rect>
+        <text x="450" y="937" fill="#3a1d0e" style="font-family: Rye, Georgia, serif; font-size: 30px; text-anchor: middle; letter-spacing: 2px">YOUR DESTINY AWAITS</text>
+
+        <!-- Side medallions -->
+        <circle cx="170" cy="1010" r="34" fill="#2a140d" stroke="#d9a441" style="stroke-width: 4"></circle>
+        <path transform="translate(170 1010)" d="M0 -18 L5 -5 L18 0 L5 5 L0 18 L-5 5 L-18 0 L-5 -5 Z" fill="#d9a441"></path>
+        <circle cx="730" cy="1010" r="34" fill="#2a140d" stroke="#d9a441" style="stroke-width: 4"></circle>
+        <path transform="translate(730 1010)" d="M0 -18 L5 -5 L18 0 L5 5 L0 18 L-5 5 L-18 0 L-5 -5 Z" fill="#d9a441"></path>
+
+        <!-- Slot where the button now sits -->
+        <rect x="310" y="1000" width="280" height="98" rx="8" fill="#0d0806" stroke="#d9a441" style="stroke-width: 3"></rect>
+        </svg>
+
+        <button type="button" id="seeFutureBtn" class="see-future-btn">See the Future</button>
+        </div>
+    </x-dc>
+
+    <p id="fortuneResult" class="fortune-result" hidden></p>
+
+    <script>
+        (function () {
+            var LOADING_MESSAGES = [
+                'Gazing in to a crystal ball',
+                'Consorting with the spirits',
+                'Reading the tea leaves.',
+                'Dancing around the fire',
+            ];
+            var LOADING_INTERVAL_MS = 1600;
+
+            document.addEventListener('click', function (e) {
+                var btn = e.target.closest && e.target.closest('#seeFutureBtn');
+                if (!btn || btn.disabled) return;
+
+                var result = document.getElementById('fortuneResult');
+                var dobInput = document.getElementById('dobInput');
+                if (!result || !dobInput) return;
+
+                if (!dobInput.value) {
+                    dobInput.reportValidity();
+                    return;
+                }
+
+                btn.disabled = true;
+                result.hidden = false;
+                result.classList.add('visible');
+
+                var loadingIndex = 0;
+                result.textContent = LOADING_MESSAGES[loadingIndex];
+                var loadingTimer = setInterval(function () {
+                    loadingIndex = (loadingIndex + 1) % LOADING_MESSAGES.length;
+                    result.textContent = LOADING_MESSAGES[loadingIndex];
+                }, LOADING_INTERVAL_MS);
+
+                var htmlBuffer = '';
+                var firstChunkReceived = false;
+
+                function stopLoading() {
+                    if (loadingTimer !== null) {
+                        clearInterval(loadingTimer);
+                        loadingTimer = null;
+                    }
+                }
+
+                fetch('{{ url_for("fortune.see_future") }}', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ dob: dobInput.value }),
+                }).then(function (response) {
+                    if (!response.ok) {
+                        return response.json().then(function (data) {
+                            throw new Error(data.error || 'Something went wrong.');
+                        }, function () {
+                            throw new Error('Something went wrong.');
+                        });
+                    }
+
+                    var reader = response.body.getReader();
+                    var decoder = new TextDecoder();
+
+                    function pump() {
+                        return reader.read().then(function (step) {
+                            if (step.done) {
+                                btn.disabled = false;
+                                return;
+                            }
+                            if (!firstChunkReceived) {
+                                firstChunkReceived = true;
+                                stopLoading();
+                            }
+                            htmlBuffer += decoder.decode(step.value, { stream: true });
+                            result.innerHTML = htmlBuffer;
+                            return pump();
+                        });
+                    }
+
+                    return pump();
+                }).catch(function (err) {
+                    stopLoading();
+                    result.textContent = err.message || 'The spirits are silent. Try again.';
+                    btn.disabled = false;
+                });
+            });
+        })();
+    </script>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,164 @@
+.bob {
+    animation: bob 4.5s ease-in-out infinite;
+}
+
+@keyframes bob {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.head {
+    animation: tilt 6s ease-in-out infinite;
+    transform-box: view-box;
+    transform-origin: 450px 580px;
+}
+
+@keyframes tilt {
+
+    0%,
+    100% {
+        transform: rotate(-2deg);
+    }
+
+    50% {
+        transform: rotate(2.5deg);
+    }
+}
+
+.sweep {
+    animation: sweep 3.2s ease-in-out infinite;
+    transform-box: view-box;
+    transform-origin: 335px 610px;
+}
+
+@keyframes sweep {
+
+    0%,
+    100% {
+        transform: rotate(-9deg);
+    }
+
+    50% {
+        transform: rotate(8deg);
+    }
+}
+
+.eyeglow {
+    animation: eyes 2.4s ease-in-out infinite;
+}
+
+@keyframes eyes {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.pulse {
+    animation: pulse 2.8s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.45;
+        transform: scale(0.92);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.06);
+    }
+}
+
+.spin {
+    animation: spin 7s linear infinite;
+    transform-box: view-box;
+    transform-origin: 450px 765px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.bulbA {
+    animation: blink 1.2s steps(1) infinite;
+}
+
+.bulbB {
+    animation: blink 1.2s steps(1) infinite;
+    animation-delay: 0.6s;
+}
+
+@keyframes blink {
+    0% {
+        fill: #fff2b0;
+    }
+
+    50% {
+        fill: #6b4a1f;
+    }
+}
+
+.twinkle {
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes see-future-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(232, 185, 63, 0.6);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 16px rgba(232, 185, 63, 0.9);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .bob,
+    .head,
+    .sweep,
+    .eyeglow,
+    .pulse,
+    .spin,
+    .bulbA,
+    .bulbB,
+    .twinkle,
+    .see-future-btn {
+        animation: none;
+    }
+}
