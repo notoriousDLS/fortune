@@ -22,5 +22,5 @@ CREATE TABLE post (
 
 CREATE TABLE fortune (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  fortune TEXT NOT NULL; 
+  fortune TEXT NOT NULL
 );
