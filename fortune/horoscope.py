@@ -2,13 +2,12 @@ from datetime import date
 from pathlib import Path
 import anthropic
 from dotenv import load_dotenv
-from flask import Blueprint, Response, Flask, request, stream_with_context 
+from flask import Blueprint, Response, request, stream_with_context
 
-load_dotenv(Path(__file__).resolve().parent / ".env")
+# .env lives in the repo root, one level above this package
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 bp = Blueprint("horoscope", __name__, url_prefix="/horoscope")
-
-app = Flask(__name__)
 
 # uses ANTHROPIC_API_KEY (loaded from .env above) or credentials from `ant auth login`
 client = anthropic.Anthropic()
@@ -80,8 +79,3 @@ def see_future():
                 yield text
 
     return Response(stream_with_context(generate()), mimetype="text/html")
-
-
-# Registered after all routes are attached: newer Flask versions raise if a
-# blueprint is modified after registration.
-app.register_blueprint(bp)

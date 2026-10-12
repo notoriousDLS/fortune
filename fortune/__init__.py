@@ -34,14 +34,14 @@ def create_app(test_config=None):
         return render_template("home/index.html")
 
     # register the database commands
-    from .fortune import db
+    from . import db
 
     db.init_app(app)
 
     # apply the blueprints to the app
-    from .fortune import auth
-    from .fortune import blog
-    from .fortune import horoscope
+    from . import auth
+    from . import blog
+    from . import horoscope
 
     app.register_blueprint(auth.bp)
     app.register_blueprint(blog.bp)

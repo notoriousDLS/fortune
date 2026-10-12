@@ -1,2 +1,3 @@
+from fortune import create_app
 
-from fortune.horoscope import app  
+app = create_app()
