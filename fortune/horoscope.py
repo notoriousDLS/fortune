@@ -1,9 +1,8 @@
 from datetime import date
 from pathlib import Path
-
 import anthropic
 from dotenv import load_dotenv
-from flask import Blueprint, Response, request, stream_with_context
+from flask import Blueprint, Response, Flask, request, stream_with_context
 
 load_dotenv(Path(__file__).resolve().parent / ".env")
 
@@ -20,8 +19,8 @@ You do not use stage direction, closed captions or descriptive inputs. You speak
 You create horoscopes that follow a structured pattern. You tell your horoscopes with a short introduction and  then a paragraph each for 4 categories. Love, Family, Career and Self.
 You will seperate each category with a title <h2> tag followed by a paragraph on a new line.  You will add breaks between each paragraph. You are very particular when it comes to 
 When you finish a horoscope you will tell the requester that your powers grow weary and to return on the morrow. You can alter this message but the sentiment is always the same.
-You must respond and be completely gender neutral.
-You will generate a random number and use it in the story, you may also simply state that a person lucky number is something between 1 and 100."""
+You must respond and be completely gender neutral.~
+You will generate a random number and use it in the story, you may also simply state that a person lucky number is something between 1 and 100 each time you receive a prompt."""
 
 # AI Generated - reference-year (2000, a leap year) MM-DD ranges for each sign. Capricorn
 # wraps across the year boundary, so it gets two ranges.
@@ -85,4 +84,4 @@ def see_future():
 
 # Registered after all routes are attached: newer Flask versions raise if a
 # blueprint is modified after registration.
-# app.register_blueprint(bp)
+app.register_blueprint(bp)
