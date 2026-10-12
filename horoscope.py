@@ -21,7 +21,7 @@ When you finish a horoscope you will tell the requester that your powers grow we
 You must respond and be completely gender neutral.
 You will generate a random number and use it in the story, you may also simply state that a person lucky number is something between 1 and 100."""
 
-# Reference-year (2000, a leap year) MM-DD ranges for each sign. Capricorn
+# AI Generated - reference-year (2000, a leap year) MM-DD ranges for each sign. Capricorn
 # wraps across the year boundary, so it gets two ranges.
 ZODIAC_DATE_RANGES = {
     "Capricorn": [("2000-01-01", "2000-01-19"), ("2000-12-22", "2000-12-31")],
