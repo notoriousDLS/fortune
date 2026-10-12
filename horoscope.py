@@ -9,6 +9,8 @@ load_dotenv(Path(__file__).resolve().parent / ".env")
 
 bp = Blueprint("horoscope", __name__, url_prefix="/horoscope")
 
+app = Flask(__name__)
+
 # uses ANTHROPIC_API_KEY (loaded from .env above) or credentials from `ant auth login`
 client = anthropic.Anthropic()
 
