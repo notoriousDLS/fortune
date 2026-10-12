@@ -3,7 +3,7 @@ from pathlib import Path
 
 import anthropic
 from dotenv import load_dotenv
-from flask import Blueprint, Flask, Response, request, stream_with_context
+from flask import Blueprint, Response, request, stream_with_context
 
 load_dotenv(Path(__file__).resolve().parent / ".env")
 
@@ -83,4 +83,4 @@ def see_future():
 
 # Registered after all routes are attached: newer Flask versions raise if a
 # blueprint is modified after registration.
-app.register_blueprint(bp)
+# app.register_blueprint(bp)
