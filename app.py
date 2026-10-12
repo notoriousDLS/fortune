@@ -5,6 +5,7 @@ import anthropic
 from dotenv import load_dotenv
 from flask import Blueprint, Response, request, stream_with_context
 
+import gunicorn
 load_dotenv(Path(__file__).resolve().parent / ".env")
 
 bp = Blueprint("fortune", __name__, url_prefix="/fortune")
