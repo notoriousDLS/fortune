@@ -6,29 +6,29 @@ from flask import render_template
 
 def create_app(test_config=None):
     """Create and configure an instance of the Flask application."""
-    app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
+    main = Flask(__name__, instance_relative_config=True)
+    main.config.from_mapping(
         # a default secret that should be overridden by instance config
         SECRET_KEY="dev",
         # store the database in the instance folder
-        DATABASE=os.path.join(app.instance_path, "flaskr.sqlite"),
+        DATABASE=os.path.join(main.instance_path, "flaskr.sqlite"),
     )
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
-        app.config.from_pyfile("config.py", silent=True)
+        main.config.from_pyfile("config.py", silent=True)
     else:
         # load the test config if passed in
-        app.config.update(test_config)
+        main.config.update(test_config)
 
     # ensure the instance folder exists
-    os.makedirs(app.instance_path, exist_ok=True)
+    os.makedirs(main.instance_path, exist_ok=True)
 
-    @app.route("/hello")
+    @main.route("/hello")
     def hello():
         return "Hello, World!"
 
-    @app.route("/", endpoint="index")
+    @main.route("/", endpoint="index")
     def home():
         """Public homepage. No login required."""
         return render_template("home/index.html")
@@ -36,15 +36,15 @@ def create_app(test_config=None):
     # register the database commands
     from . import db
 
-    db.init_app(app)
+    db.init_app(main)
 
     # apply the blueprints to the app
     from . import auth
     from . import blog
-    from . import horoscope
+    from . import main
 
-    app.register_blueprint(auth.bp)
-    app.register_blueprint(blog.bp)
-    app.register_blueprint(horoscope.bp)
+    main.register_blueprint(auth.bp)
+    main.register_blueprint(blog.bp)
+    main.register_blueprint(main.bp)
 
-    return app
+    return main
