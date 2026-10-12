@@ -1,1 +1,1 @@
-python3 horoscope.py
+python3 app.py
