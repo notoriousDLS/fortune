@@ -12,7 +12,6 @@ from werkzeug.security import check_password_hash
 from werkzeug.security import generate_password_hash
 
 
-
 from .db import get_db
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
