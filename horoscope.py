@@ -7,7 +7,7 @@ from flask import Blueprint, Response, request, stream_with_context
 
 load_dotenv(Path(__file__).resolve().parent / ".env")
 
-bp = Blueprint("fortune", __name__, url_prefix="/fortune")
+bp = Blueprint("horoscope", __name__, url_prefix="/horoscope")
 
 # uses ANTHROPIC_API_KEY (loaded from .env above) or credentials from `ant auth login`
 client = anthropic.Anthropic()

@@ -37,7 +37,6 @@ html {
   background: var(--bg);
   color: var(--gold-muted);
   padding: 1rem;
-  min-height: 100%;
 }
 
 body {
@@ -50,7 +49,8 @@ body {
   overflow-x: hidden;
 }
 
-img, svg {
+img,
+svg {
   max-width: 100%;
   height: auto;
 }
@@ -94,6 +94,16 @@ a {
 
 a:hover {
   color: var(--gold-bright);
+  text-decoration: underline;
+}
+
+button>a {
+  color: var(--surface);
+  text-decoration: none;
+}
+
+button>a:hover {
+  color: var(--surface-raised);
   text-decoration: underline;
 }
 
@@ -392,4 +402,8 @@ input[type=submit].danger {
 input[type=submit].danger:hover {
   background: rgba(239, 107, 107, 0.12);
   color: var(--danger);
+}
+
+nav {
+  border-radius: 10px;
 }
